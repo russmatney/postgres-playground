@@ -1,0 +1,14 @@
+{
+  "name": "postgres-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Russell Matney <russell.matney@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^4.1.1"
+  }
+}

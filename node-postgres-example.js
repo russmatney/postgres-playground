@@ -1,16 +1,28 @@
 var http = require('http');
 var pg = require('pg');
 
-var conString = "postgres://postgres:1234@localhost/postgres";
+var conString = "postgres://postgres_admin:1234@localhost/postgres_db";
+
+console.log('running script');
 
 var server = http.createServer(function(req, res) {
 
   // get a pg client from the connection pool
   pg.connect(conString, function(err, client, done) {
 
+    if (err) {
+      console.log('err');
+      console.log(err);
+    }
+
     var handleError = function(err) {
       // no error occurred, continue with the request
       if(!err) return false;
+
+      if (err) {
+        console.log('err');
+        console.log(err);
+      }
 
       // An error occurred, remove the client from the connection pool.
       // A truthy value passed to done will remove the connection from the pool
@@ -45,4 +57,5 @@ var server = http.createServer(function(req, res) {
 })
 
 server.listen(3001)
+console.log('server listening on port: 3001');
 
